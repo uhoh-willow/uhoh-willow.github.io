@@ -32,7 +32,7 @@ main {padding: 0 clamp(2rem, 8vw, 8rem);}
 /* ================== */
 h1 {
 	margin: 0;
-	font-size: clamp(3rem, 7vw, 6rem);
+	font-size: clamp(3rem, 7vw, 5rem);
 	font-weight: 100; /* thin text */
 	line-height: 1; /* removes extra space around text */
 	text-decoration: underline;
@@ -59,10 +59,21 @@ li {
 a {
 	color: var(--text-dark);
 	text-decoration: none; /* remove underline */
-	transition: color 0.3s, /* fade text colour change for hover */
+	transition: color 0.3s; /* fade text colour change for hover */
 }
 
 a:hover, a:focus-visible { /* on hover or selected by keyboard */
 	color: var(--text-hover);
 	outline: none; /* hide browser focus box */
+}
+
+/* ================== */
+@media (max-width: 700px) { /* light overlay for mobile */
+	body {
+		background:
+			linear-gradient(to right, oklch(from var(--text-light) l c h / 0.75), oklch(from var(--text-light) l c h / 0.25)),
+			var(--background)
+			url("assets/bg.png")
+			no-repeat right center / cover;
+	}
 }
